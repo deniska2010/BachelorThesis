@@ -32,6 +32,11 @@ public class CargosCapacityFeature {
             }
         }
         OptionalDouble average = answers.stream().mapToLong(e -> e).average();
+        if (!average.isPresent()){
+
+            return new Feature("AverageCargosCapacity", 0.0, "Средняя вместимость грузов по заказам.");
+
+        }
 
         return new Feature("AverageCargosCapacity", average.getAsDouble(), "Средняя вместимость грузов по заказам.");
 

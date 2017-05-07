@@ -5,7 +5,6 @@ public class Feature {
     double value;
     String name;
     String description;
-    String answer;
 
     public Feature(String name, double value, String description) {
         this.name = name;
@@ -28,6 +27,13 @@ public class Feature {
 
     public static String getHeadOfCSV() {
         return "name,value,description";
+    }
+
+    public String getName() {
+        return name;
+    }
+    public double getValue() {
+        return value;
     }
 
 }

@@ -7,22 +7,20 @@ import ru.ifmo.ctddev.datasets.CSVWriter;
 
 import org.json.simple.parser.*;
 
-
-import ru.ifmo.ctddev.Utils.FileRead;
-import sun.plugin2.message.transport.Transport;
+import ru.ifmo.ctddev.utils.FileRead;
 
 public class FeatureManager {
 
-    public void JsonParse(File JsonFile) throws FileNotFoundException {
+    public ArrayList<Feature> JsonParse(File jsonFile) throws FileNotFoundException {
         String json = "";
         try {
-            json = FileRead.read("/Users/disoni/Thesis/src/main/resources/datasets/" + JsonFile.getName());
+            json = FileRead.read(jsonFile.getAbsolutePath());
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        ArrayList<Feature> featureList = new ArrayList<Feature>();
+        ArrayList<Feature> featureList = new ArrayList<>();
         try {
             FeatureCountOrders featureCountOrders = new FeatureCountOrders();
             Feature f1 = featureCountOrders.createFeature(json);
@@ -136,14 +134,9 @@ public class FeatureManager {
             Feature f53 = TransportShiftTimeWindowTo.createFeature(json);
             featureList.add(f53);
 
-
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-        int index = JsonFile.getName().indexOf(".");
-        String res = JsonFile.getName().substring(0, index);
-        CSVWriter csvWriter = new CSVWriter();
-        csvWriter.write(res, featureList);
+        return featureList;
     }
 }

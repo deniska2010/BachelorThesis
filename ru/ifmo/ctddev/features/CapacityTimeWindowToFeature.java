@@ -24,6 +24,9 @@ public class CapacityTimeWindowToFeature {
                 count++;
             }
         }
+        if (count == 0) {
+            return new Feature("AverageCapacityTimeWindowFrom", count, "Окна загрузки/разгрузки (CapacityWindow) для локаций определяют количество груза, которое локация способна отдать\\принять. Cреднее начало временного окна по всем локациям.");
+        }
         return new Feature("AverageCapacityTimeWindowTo", result / count, "Окна загрузки/разгрузки (CapacityWindow) для локаций определяют количество груза, которое локация способна отдать\\принять. Cреднее окончание временного окна по всем локациям.");
     }
 }

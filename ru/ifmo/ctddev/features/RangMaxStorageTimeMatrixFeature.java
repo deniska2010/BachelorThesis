@@ -1,6 +1,6 @@
 package ru.ifmo.ctddev.features;
 
-import ru.ifmo.ctddev.Utils.CountRang;
+import ru.ifmo.ctddev.utils.CountRang;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;

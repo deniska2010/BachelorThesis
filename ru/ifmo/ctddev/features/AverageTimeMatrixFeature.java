@@ -4,7 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
-import ru.ifmo.ctddev.Utils.CountAverageDistanceOrTime;
+import ru.ifmo.ctddev.utils.CountAverageDistanceOrTime;
 
 /**
  * Created by disoni on 04.05.17.

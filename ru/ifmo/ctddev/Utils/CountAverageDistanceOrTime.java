@@ -1,6 +1,4 @@
-package ru.ifmo.ctddev.Utils;
-
-import java.util.ArrayList;
+package ru.ifmo.ctddev.utils;
 
 
 public class CountAverageDistanceOrTime {

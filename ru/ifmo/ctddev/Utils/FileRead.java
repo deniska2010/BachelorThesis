@@ -1,4 +1,4 @@
-package ru.ifmo.ctddev.Utils;
+package ru.ifmo.ctddev.utils;
 
 import java.io.*;
 

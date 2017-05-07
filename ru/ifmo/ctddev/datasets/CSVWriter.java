@@ -13,18 +13,19 @@ public class CSVWriter {
     public static void write(String filename, List<Feature> records) {
         BufferedWriter bw = null;
         try {
-            File file = new File(filename);
+            File file = new File("src/main/resources/features/" + filename);
             if (!file.exists()) {
                 file.createNewFile();
             }
 
-            bw = new BufferedWriter(new FileWriter(filename));
+            bw = new BufferedWriter(new FileWriter("src/main/resources/features/" + filename,false));
 
+            bw.write(Feature.getHeadOfCSV());
+            bw.newLine();
             for (Feature feature : records) {
-                bw.write(feature.toString());
+                bw.write(feature.toCSVString());
                 bw.newLine();
             }
-
             bw.flush();
             bw.close();
         } catch (IOException e) {

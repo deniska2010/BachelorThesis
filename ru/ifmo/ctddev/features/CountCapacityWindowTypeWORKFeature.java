@@ -23,6 +23,6 @@ public class CountCapacityWindowTypeWORKFeature {
                 }
             }
         }
-        return new Feature("CapacityWindowTypeWORK", count, "Количество окон на доступное время, когда возможна работа на локации\n.");
+        return new Feature("CapacityWindowTypeWORK", count, "Количество окон на доступное время, когда возможна работа на локации.");
     }
 }

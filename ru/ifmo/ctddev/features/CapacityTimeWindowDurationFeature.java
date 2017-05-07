@@ -17,12 +17,16 @@ public class CapacityTimeWindowDurationFeature {
         for (int i = 0; i < jsonObj2.size(); i++) {
             JSONObject jsonObject3 = (JSONObject) jsonObj2.get(i);
             JSONArray jsonObj4 = (JSONArray) jsonObject3.get("capacityWindows");
-            for (int j = 0;j< jsonObj4.size();j++){
-             JSONObject jsonObject5 = (JSONObject) jsonObj4.get(j);
-             JSONObject jsonObject6 = (JSONObject) jsonObject5.get("timeWindow");
-             result += (long) jsonObject6.get("timeTo") - (long) jsonObject6.get("timeFrom");
-             count++;
+            for (int j = 0; j < jsonObj4.size(); j++) {
+                JSONObject jsonObject5 = (JSONObject) jsonObj4.get(j);
+                JSONObject jsonObject6 = (JSONObject) jsonObject5.get("timeWindow");
+                result += (long) jsonObject6.get("timeTo") - (long) jsonObject6.get("timeFrom");
+                count++;
             }
+        }
+        if (count == 0) {
+            return new Feature("AverageCapacityTimeWindowDuration", count, "Окна загрузки/разгрузки (CapacityWindow) для локаций определяют количество груза, которое локация способна отдать\\принять.Продолжительность среднего временное окно по всем локациям.");
+
         }
         return new Feature("AverageCapacityTimeWindowDuration", result / count, "Окна загрузки/разгрузки (CapacityWindow) для локаций определяют количество груза, которое локация способна отдать\\принять.Продолжительность среднего временное окно по всем локациям.");
     }

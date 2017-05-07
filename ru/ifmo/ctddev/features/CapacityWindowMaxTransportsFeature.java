@@ -21,6 +21,10 @@ public class CapacityWindowMaxTransportsFeature {
                 count++;
             }
         }
+        if (count == 0) {
+            return new Feature("AverageCapacityWindowMaxTransports", count, "Количество транспорта, который может работать в локации одновременно.Среднее количество такого транспорта по всем локациям,где есть окна загрузки/рагрузки.");
+        }
         return new Feature("AverageCapacityWindowMaxTransports", result / count, "Количество транспорта, который может работать в локации одновременно.Среднее количество такого транспорта по всем локациям,где есть окна загрузки/рагрузки.");
+
     }
 }

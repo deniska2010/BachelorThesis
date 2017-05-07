@@ -4,7 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
-import ru.ifmo.ctddev.Utils.CountRang;
+import ru.ifmo.ctddev.utils.CountRang;
 
 public class PerformerTransportCompatibilityMatrixFeature {
     public static Feature createFeature(String json) throws ParseException {
