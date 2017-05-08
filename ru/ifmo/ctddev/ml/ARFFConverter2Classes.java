@@ -1,5 +1,6 @@
 package ru.ifmo.ctddev.ml;
 
+import ru.ifmo.ctddev.datasets.AnswerReader;
 import ru.ifmo.ctddev.datasets.CSVReader;
 import ru.ifmo.ctddev.features.Feature;
 
@@ -9,32 +10,24 @@ import java.util.stream.Collectors;
 
 public class ARFFConverter2Classes {
 
-    public static void convert() throws IOException {
-        String targetDir = "/Users/disoni/Thesis/src/main/resources";
-        String features = "/features";
-        String train = "/train5";
+    public static void convert(List<File> fileList, String data) throws IOException {
+        String targetDir = "src/main/resources";
+        String answers = "/answers";
         String dARFF = ".arff";
 
-        File dir = new File(targetDir + features);
-
-        File[] directoryListing = dir.listFiles();
-        if (directoryListing == null) {
-            System.err.println("not a directory to list files");
-            return;
-        }
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(
-                targetDir + train + dARFF, false));
+                targetDir + data + dARFF, false));
 
         writer.write("%features,targetClass");
         writer.newLine();
-        writer.write("@RELATION pdp");
+        writer.write("@RELATION veeroute");
         writer.newLine();
 
         boolean firstTime = true;
 
 
-        for (File file : directoryListing) {
+        for (File file : fileList) {
             List<String[]> featuresCSV = CSVReader.read(file.getAbsolutePath(), ",");
 
             if (firstTime) {
@@ -47,7 +40,7 @@ public class ARFFConverter2Classes {
                     }
                 });
 
-                writer.write("@ATTRIBUTE class {norway,not}");
+                writer.write("@ATTRIBUTE class {norway,notnorway}");
                 writer.newLine();
                 writer.write("@DATA");
                 writer.newLine();
@@ -57,11 +50,11 @@ public class ARFFConverter2Classes {
             List<String> featuresDouble = featuresCSV.stream()
                     .map(f -> f[1]).collect(Collectors.toList());
 
-            if(file.getName().contains("norway")){
+            String answer = AnswerReader.read(targetDir + answers + "/" + file.getName());
+            if (answer.equals("norway")) {
                 featuresDouble.add("norway");
-            }
-            else{
-                featuresDouble.add("not");
+            } else {
+                featuresDouble.add("notnorway");
             }
 
 

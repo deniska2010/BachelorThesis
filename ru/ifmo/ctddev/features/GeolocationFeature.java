@@ -25,7 +25,7 @@ public class GeolocationFeature {
             double latitude = (double) jsonObj4.get("latitude");
             double longitude = (double) jsonObj4.get("longitude");
             if (latitude > 90 || latitude < -90 || longitude > 180 || longitude < -180) {
-                return new Feature("Город", "Unknown".hashCode(), "Город,где проводится доставка,в данном случае - " + city);
+                return new Feature("City", "Unknown".hashCode(), "Город,где проводится доставка,в данном случае - " + city);
 
             }
             URL url = new URL("http://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&sensor=true");
@@ -51,7 +51,7 @@ public class GeolocationFeature {
 
             JSONArray results = (JSONArray) json1.get("results");
             if (results.isEmpty()) {
-                return new Feature("Город", "Unknown".hashCode(), "Город,где проводится доставка,в данном случае - " + city);
+                return new Feature("City", "Unknown".hashCode(), "Город,где проводится доставка,в данном случае - " + city);
 
             }
             JSONObject rec = (JSONObject) results.get(0);

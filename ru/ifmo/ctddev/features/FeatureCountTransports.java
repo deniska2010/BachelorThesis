@@ -12,6 +12,6 @@ public class FeatureCountTransports {
         JSONObject jsonObj = (JSONObject) JSONValue.parseWithException(json);
         JSONObject jsonObj1 = (JSONObject) jsonObj.get("primaryData");
         JSONArray jsonObj2 = (JSONArray) jsonObj1.get("transports");
-        return new Feature("Amount of Transports", jsonObj2.size(), "Количество транспортых средств,выполняющих заказ");
+        return new Feature("AmountOfTransports", jsonObj2.size(), "Количество транспортых средств,выполняющих заказ");
     }
 }

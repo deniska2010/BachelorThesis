@@ -10,6 +10,6 @@ public class FeatureCountOrders {
         JSONObject jsonObj = (JSONObject) JSONValue.parseWithException(json);
         JSONObject jsonObj1 = (JSONObject) jsonObj.get("primaryData");
         JSONArray jsonObj2 = (JSONArray) jsonObj1.get("orders");
-        return new Feature("Amount of Orders", jsonObj2.size(), "Количество заказов");
+        return new Feature("AmountOfOrders", jsonObj2.size(), "Количество заказов");
     }
 }

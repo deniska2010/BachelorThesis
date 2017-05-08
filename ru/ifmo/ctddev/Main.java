@@ -1,7 +1,6 @@
 package ru.ifmo.ctddev;
 
-import ru.ifmo.ctddev.datasets.CSVWriter;
-import ru.ifmo.ctddev.datasets.FileSetManager;
+import ru.ifmo.ctddev.datasets.*;
 import ru.ifmo.ctddev.features.Feature;
 import ru.ifmo.ctddev.features.FeatureManager;
 import ru.ifmo.ctddev.ml.ARFFConverter2Classes;
@@ -18,8 +17,9 @@ import weka.core.Instances;
 
 public class Main {
 
-    private static final String RESOURCES_PATH = "/Users/disoni/Thesis/src/main/resources/datasets/not";
-    private static final String RESOURCES_NORWAY_PATH = "/Users/disoni/Thesis/src/main/resources/datasets/norway";
+    private static final String RESOURCES_PATH = "/Users/disoni/Documents/Bachelor/src/main/resources/features";
+    private static final String answers = "/answers";
+    private static final String targetDir = "src/main/resources";
 
     public static void main(String[] args) {
 
@@ -36,15 +36,17 @@ public class Main {
 
 
         try {
-
             FSM = new FileSetManager(RESOURCES_PATH);
-
-
             listFiles = FSM.getListFiles();
-            for (int i = 0; i < listFiles.length - 1; i++) {
-                data.add(listFiles[i + 1]);
+            for (int i = 0; i < listFiles.length; i++) {
+                String answer = AnswerReader.read(targetDir + answers + "/" + listFiles[i].getName());
+                if (answer.equals("norway")) {
+                    dataN.add(listFiles[i]);
+                } else {
+                    data.add(listFiles[i]);
+                }
             }
-
+/*
             FSM = new FileSetManager(RESOURCES_NORWAY_PATH);
 
 
@@ -52,10 +54,11 @@ public class Main {
             for (int i = 0; i < listFiles.length; i++) {
                 dataN.add(listFiles[i]);
             }
+            */
             Collections.shuffle(data);
             Collections.shuffle(dataN);
-            int countU = (int) (data.size() * 0.5);
-            int countN = (int) (dataN.size() * 0.5);
+            int countU = (int) (data.size() * 0.75);
+            int countN = (int) (dataN.size() * 0.75);
             trainU = data.subList(0, countU);
             testU = data.subList(countU + 1, data.size() - 1);
             trainN = dataN.subList(0, countN);
@@ -64,30 +67,46 @@ public class Main {
             train.addAll(trainN);
             test.addAll(testN);
             test.addAll(testU);
-            for (File json : train) {
+            Collections.shuffle(train);
+            Collections.shuffle(test);
+            /*
+            for (File json : data) {
                 FeatureManager fm = new FeatureManager();
                 ArrayList<Feature> featureList = fm.JsonParse(json);
                 int index = json.getName().indexOf(".");
                 String name = json.getName().substring(0, index);
-                String value = "not";
-                if (json.getAbsolutePath().contains("norway")) {
-                    value = "norway";
-                }
                 CSVWriter csvWriter = new CSVWriter();
-                csvWriter.write(name +"_"+ value, featureList);
+                csvWriter.write(name, featureList);
+                AnswerWriter answerWriter = new AnswerWriter();
+                answerWriter.write(name, "NOTnorway");
             }
+            for (File json : dataN) {
+                FeatureManager fm = new FeatureManager();
+                ArrayList<Feature> featureList = fm.JsonParse(json);
+                int index = json.getName().indexOf(".");
+                String name = json.getName().substring(0, index);
+                CSVWriter csvWriter = new CSVWriter();
+                csvWriter.write(name, featureList);
+                AnswerWriter answerWriter = new AnswerWriter();
+                answerWriter.write(name, "norway");
+            }
+            */
             ARFFConverter2Classes arffConverter2classes = new ARFFConverter2Classes();
-            arffConverter2classes.convert();
+            arffConverter2classes.convert(train,"/train");
+            ARFFConverter2Classes arffConverter2classes2 = new ARFFConverter2Classes();
+            arffConverter2classes2.convert(test,"/test");
             BufferedReader reader = new BufferedReader(
-                    new FileReader("/Users/disoni/Thesis/src/main/resources/train.arff"));
+                    new FileReader("src/main/resources/train.arff"));
+            BufferedReader reader2 = new BufferedReader(
+                    new FileReader("src/main/resources/test.arff"));
             Instances datas = new Instances(reader);
             reader.close();
             datas.setClassIndex(datas.numAttributes() - 1);
-
             String[] options = {"-U"};
             J48 tree = new J48();         // new instance of tree
             tree.setOptions(options);     // set the options
             tree.buildClassifier(datas);   // build classifier
+            System.out.print(tree.binarySplitsTipText());
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
