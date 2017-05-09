@@ -10,6 +10,7 @@ import java.util.List;
 
 
 public class AnswerWriter {
+
     public static void write(String filename, String value) {
         BufferedWriter bw = null;
         try {

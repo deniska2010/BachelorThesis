@@ -11,7 +11,8 @@ import ru.ifmo.ctddev.utils.FileRead;
 
 public class FeatureManager {
 
-    public ArrayList<Feature> JsonParse(File jsonFile) throws FileNotFoundException {
+    public ArrayList<Feature> JsonParse(String json) throws FileNotFoundException {
+        /*
         String json = "";
         try {
             json = FileRead.read(jsonFile.getAbsolutePath());
@@ -19,7 +20,7 @@ public class FeatureManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+*/
         ArrayList<Feature> featureList = new ArrayList<>();
         try {
             FeatureCountOrders featureCountOrders = new FeatureCountOrders();
