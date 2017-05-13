@@ -40,7 +40,7 @@ public class ARFFConverter2Classes {
                     }
                 });
 
-                writer.write("@ATTRIBUTE class {norway,notnorway}");
+                writer.write("@ATTRIBUTE class {norway,NOTnorway}");
                 writer.newLine();
                 writer.write("@DATA");
                 writer.newLine();
@@ -51,11 +51,7 @@ public class ARFFConverter2Classes {
                     .map(f -> f[1]).collect(Collectors.toList());
 
             String answer = AnswerReader.read(targetDir + answers + "/" + file.getName());
-            if (answer.equals("norway")) {
-                featuresDouble.add("norway");
-            } else {
-                featuresDouble.add("notnorway");
-            }
+                featuresDouble.add(answer);
 
 
             writer.write(String.join(",", featuresDouble));

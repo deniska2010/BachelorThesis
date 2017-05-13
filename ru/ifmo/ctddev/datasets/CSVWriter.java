@@ -13,12 +13,12 @@ public class CSVWriter {
     public static void write(String filename, List<Feature> records) {
         BufferedWriter bw = null;
         try {
-            File file = new File("/Users/disoni/Documents/Bachelor/src/main/resources/features/" + filename);
+            File file = new File("/Users/disoni/Documents/Bachelor/src/main/resources/features/austria/" + filename);
             if (!file.exists()) {
                 file.createNewFile();
             }
 
-            bw = new BufferedWriter(new FileWriter("/Users/disoni/Documents/Bachelor/src/main/resources/features/" + filename,false));
+            bw = new BufferedWriter(new FileWriter("/Users/disoni/Documents/Bachelor/src/main/resources/features/austria/" + filename,false));
 
             bw.write(Feature.getHeadOfCSV());
             bw.newLine();
