@@ -1,0 +1,269 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+%\documentclass[handout]{beamer}
+%\usetheme{Pittsburgh}
+%\beamertemplatesolidbackgroundcolor{black!2}
+%\setbeamertemplate{footline}[frame number]
+%\usepackage{pgfpages}
+%%\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm,landscape]
+%\pgfpagesuselayout{8 on 1}[a4paper,border shrink=5mm]
+
+%%% PACKAGES
+\usepackage[russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{graphics}
+\usepackage{appendixnumberbeamer}
+
+%%% BEAMER SETTINGS
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+
+%%% TIKZ SETTINGS
+\usetikzlibrary{fit}
+
+%%% NEW COMMANDS
+\def\pitem{\pause \item}
+
+\DeclareGraphicsRule{.1}{mps}{*}{}
+\DeclareGraphicsRule{.2}{mps}{*}{}
+\DeclareGraphicsRule{.3}{mps}{*}{}
+\DeclareGraphicsRule{.4}{mps}{*}{}
+\DeclareGraphicsRule{.5}{mps}{*}{}
+\DeclareGraphicsRule{.6}{mps}{*}{}
+
+%\includeonlyframes{current} % leaves only the given frames
+
+\title[Метрика качества]{Определение метрики качества для известного типа задач}
+%\transduration{20}
+\author[Шведов Денис]{Шведов Денис}
+\institute[]{Национальный исследовательский университет информационных технологий, механики и оптики}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+%\transduration{20}
+\begin{center}
+{\scriptsize Санкт-Петербургский национальный исследовательский университет \\ информационных технологий, механики и оптики}
+
+\vspace{1cm}
+
+{\scriptsize Факультет информационных технологий и программирования
+
+Кафедра компьютерных технологий}
+
+\vspace{1cm}
+
+\vbox{\large\bfseries
+
+Определение метрики качества для известного типа задач}
+
+\vspace{1cm}
+
+{\large Шведов Денис Владимирович \\}
+{\large Группа M3436}
+
+
+\vspace{1cm}
+
+{\large Научный руководитель: к.ф.-м.н. доцент кафедры КТ \\}
+{\large А.~А.~Фильченков}
+
+
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\frame[label=title]{\titlepage}
+
+
+\begin{frame}{Решаемая проблема}
+%\transduration{20}
+\begin{block}{Цель исследования}
+Компания VeeRoute занимается разработкой специальных алгоритмов, которые позволяют выстраивать маршруты в реальном времени.	
+По данным, предоставленным компанией, построить классификатор, который определит тип новых наборов данных. 
+\begin{itemize}
+\item Грамотно подобрать признаки для классификатора
+\item Выбрать лучший алгоритм классификации для решения поставленной задачи
+\item Протестировать на разных наборах данных и добиться хорошего результата
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Решаемая проблема}
+%\transduration{20}
+\begin{block}{Актуальность}
+\begin{itemize}
+\item В компанию приходит заказчик с определенной бизнес-задачей и своими датасетами.
+\item При этом в компании не знают, корректную ли вообще задачу ставит заказчик.
+\item Вполне возможно, что он ошибается.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Решаемая проблема}
+%\transduration{20}
+\begin{block}{Актуальность}
+	\begin{itemize}
+		\item Проверяется похожесть нового датасета, к одной из групп, ранее отобранных.
+		\item Можно посмотреть, какая бизнес-задача решалась на уже известных данных и сравнить с тем, что предоставил заказчик.
+		\item Таким образом, можно еще на первом шаге устранить ошибку и переформулировать задачу.
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Решение}
+%\transduration{20}
+\begin{block}{Описание исходных данных}
+Каждый набор данных представляет собой информацию о
+\begin{itemize}
+\item Заказах
+\item Грузах
+\item Водителях и их передвижениях
+\item Траспортных средствах и их передвижениях
+\item Локациях
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Решение}
+%\transduration{20}
+\begin{block}{Выбор признаков}
+Было выбрано примерно более 50 признаков для построения классификатора.
+
+Их можно разбить на следующие категории.
+
+\begin{itemize}
+\item Количественные признаки (количество заказов, транспортных средств, водителей, локаций в одном наборе данных)
+\item Матрицы совместимости (например, между исполнителем-транспортом, транспортом-локацией, исполнителем-заказом, грузом-отсеком траспнортного средства и т.д.)
+\item Статистические признаки (например, среднее количество рабочих смен для исполнителей, среднее количество грузов в заказах, средняя длительность временного отрезка в минутах (для исполнителя) \ длительность пути в метрах для транспорта и т.д.)
+\item Геокоординаты
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Решение}
+%\transduration{20}
+\begin{block}{Типы многоклассовой классификации}
+При решении использовались следующие типы классификаций
+
+\begin{itemize}
+\item Дерево решений (C4.5)
+\item Многоклассовый метод опорных векторов
+\item Многоклассовая логиститическая регрессия
+\item Random Forest
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Решение}
+%\transduration{20}
+\begin{block}{Описание решения }
+\begin{itemize}
+	\item Для исследования брались 4 разных класса наборов данных, не связанных друг с другом.В каждом классе выбиралось одинаковое числов наборов для рассмотрения
+	\item В качестве обучающей выборки ~--- 50 \% от каждого класса наборов данных
+	\item В качестве тестовой выборки ~--- 50 \% оставшихся данных
+	\item При каждом запуске данные перемешивались.
+	\item Далее будут рассмотрены результаты нескольких категорий тестирования. В каждой категории какое-то количество признаков зашумлено и не участвует в построении классификатора.
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Результаты}
+%\transduration{20}
+\begin{block}{Все признаки используются}
+\begin{table}[!h]
+	\centering
+	\caption{Средняя $F_1$ мера}
+	\label{my-label}
+	\begin{tabular}{|*{18}{c|}}\hline
+		Дерево Решений & 0.949\\\hline
+		SVM &  0.949  \\\hline
+		LogReg & 0.949  \\\hline
+		RandomForest &0.949 \\\hline
+	\end{tabular}
+\end{table}
+\end{block}
+\end{frame}
+
+\begin{frame}{Результаты}
+%\transduration{20}
+\begin{block}{Не используется признак количества заказов}
+	\begin{table}[!h]
+		\centering
+		\caption{Средняя $F_1$ мера}
+		\label{my-label}
+		\begin{tabular}{|*{18}{c|}}\hline
+			Дерево Решений & 1.0\\\hline
+			SVM &  0.949  \\\hline
+			LogReg & 0.778  \\\hline
+			RandomForest &0.845 \\\hline
+		\end{tabular}
+	\end{table}
+\end{block}
+\end{frame}
+
+\begin{frame}{Результаты}
+%\transduration{20}
+\begin{block}{Не используются признаки количества заказов,транспорта и водителей}
+	\begin{table}[!h]
+		\centering
+		\caption{Средняя $F_1$ мера}
+		\label{my-label}
+		\begin{tabular}{|*{18}{c|}}\hline
+			Дерево Решений & 0.949\\\hline
+			SVM &  0.949  \\\hline
+			LogReg & 0.896  \\\hline
+			RandomForest &0.899 \\\hline
+		\end{tabular}
+	\end{table}
+\end{block}
+\end{frame}
+
+\begin{frame}{Результаты}
+%\transduration{20}
+\begin{block}{Не используется половина рандомных признаков}
+	\begin{table}[!h]
+		\centering
+		\caption{Средняя $F_1$ мера}
+		\label{my-label}
+		\begin{tabular}{|*{18}{c|}}\hline
+			Дерево Решений & 0.949\\\hline
+			SVM &  0.949  \\\hline
+			LogReg & 0.949  \\\hline
+			RandomForest &0.899 \\\hline
+		\end{tabular}
+	\end{table}
+\end{block}
+\end{frame}
+
+\begin{frame}{Результат}
+%\transduration{20}
+\begin{block}{Выводы}
+\begin{itemize}
+\item Наиболее лучший результат по итогам тестирования был показан при использовании метода "Дерево Решений".$F_1$ мера составила примерно 0.95
+\item В целом, выбранные признаки хорошо классифицируют наборы данных
+%\item {Выявлена зависимость от числа точек, размерности и фронтов}
+%\item {Есть результат на реальных данных}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+Спасибо за внимание!
+\end{center}
+\end{frame}
+
+\appendix
+
+%\begin{frame}{Дополнительные материалы}
+%
+%\end{frame}
+
+\end{document}

@@ -1,0 +1,17 @@
+[0] Config.pm:343> INFO - This is Biber 2.5
+[0] Config.pm:346> INFO - Logfile is 'bachelor-thesis.blg'
+[60] biber-darwin:290> INFO - === Wed May 31, 2017, 14:24:50
+[87] Biber.pm:351> INFO - Reading 'bachelor-thesis.bcf'
+[236] Biber.pm:776> INFO - Found 10 citekeys in bib section 0
+[254] Biber.pm:3493> INFO - Processing section 0
+[274] Biber.pm:3657> INFO - Looking for bibtex format file 'bachelor-thesis.bib' for section 0
+[276] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[276] bibtex.pm:1048> INFO - Found BibTeX data source 'bachelor-thesis.bib'
+[288] Utils.pm:149> WARN - I didn't find a database entry for 'example-english' (section 0)
+[288] Utils.pm:149> WARN - I didn't find a database entry for 'unrestricted-jump-evco' (section 0)
+[306] UCollate.pm:66> INFO - Overriding locale 'ru-RU' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[306] UCollate.pm:66> INFO - Overriding locale 'ru-RU' defaults 'variable = shifted' with 'variable = non-ignorable'
+[307] Biber.pm:3306> INFO - Sorting list 'none/global/' of type 'entry' with scheme 'none' and locale 'ru-RU'
+[313] bbl.pm:526> INFO - Writing 'bachelor-thesis.bbl' with encoding 'UTF-8'
+[314] bbl.pm:619> INFO - Output to bachelor-thesis.bbl
+[314] Biber.pm:108> INFO - WARNINGS: 2

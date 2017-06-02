@@ -1,0 +1,191 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{none/global/}
+    \entry{many-classes}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=fea66792bd841d0c242b1b0bac937d6b}{%
+           family={Sobolev},
+           family_i={S\bibinitperiod},
+           given={Alexander},
+           given_i={A\bibinitperiod}}}%
+        {{hash=fa7ada4460d6007cf3f639ad12de57a4}{%
+           family={Barinova},
+           family_i={B\bibinitperiod},
+           given={Olga},
+           given_i={O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Факультет Вычислительной Математики и Кибернетики Московский Государственный Университет им. Ломоносова, Москва, Россия}%
+      }
+      \strng{namehash}{09c910ed72d2bd06371f9728e5c82920}
+      \strng{fullhash}{09c910ed72d2bd06371f9728e5c82920}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Многоклассовая классификация в задаче семантической сегментации}
+    \endentry
+    \entry{many-binary}{article}{}
+      \name{author}{2}{}{%
+        {{hash=9aa3c7cd201fcff29f0536aa3f2aa954}{%
+           family={Карасиков},
+           family_i={К\bibinitperiod},
+           given={М.\bibnamedelimi Е.},
+           given_i={М\bibinitperiod\bibinitdelim Е\bibinitperiod}}}%
+        {{hash=5138eb64e1df00b9b991330592105023}{%
+           family={Максимов},
+           family_i={М\bibinitperiod},
+           given={Ю.\bibnamedelimi В.},
+           given_i={Ю\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{ef76025f45a4b5715d97344cefd4acb8}
+      \strng{fullhash}{ef76025f45a4b5715d97344cefd4acb8}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Поиск эффективных методов решения задач многоклассовой классификации}
+      \field{langid}{russian}
+      \field{title}{Поиск эффективных методов снижения размерности при решении задач многоклассовой классификации путем её сведения к решению бинарных задач}
+      \field{year}{2014}
+    \endentry
+    \entry{tree-rus}{booklet}{}
+      \name{author}{1}{}{%
+        {{hash=a52d6bf574ab62d248a781ecb3bbdab7}{%
+           family={Сидоров},
+           family_i={С\bibinitperiod},
+           given={А.В.},
+           given_i={А\bibinitperiod}}}%
+      }
+      \strng{namehash}{a52d6bf574ab62d248a781ecb3bbdab7}
+      \strng{fullhash}{a52d6bf574ab62d248a781ecb3bbdab7}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Алгоритмы создания дерева принятия решений}
+    \endentry
+    \entry{tree-eng}{proceedings}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Classification and Regression Trees}
+      \field{year}{2014}
+    \endentry
+    \entry{svm-vorontsov}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0c815e8a4ac3c4ee41e895e3ac119c96}{%
+           family={Воронцов},
+           family_i={В\bibinitperiod},
+           given={Константи\bibnamedelima Вячеславович},
+           given_i={К\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{0c815e8a4ac3c4ee41e895e3ac119c96}
+      \strng{fullhash}{0c815e8a4ac3c4ee41e895e3ac119c96}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Курс по машинному обучению}
+      \field{langid}{russian}
+      \field{title}{Лекции по методам опорных векторов}
+      \field{year}{2007}
+    \endentry
+    \entry{svm-moreee}{inproceedings}{useauthor=false}
+      \name{author}{4}{}{%
+        {{hash=0724058272ea94a32c48bc296fd2820f}{%
+           family={Борисова},
+           family_i={Б\bibinitperiod},
+           given={П.\bibnamedelimi В.},
+           given_i={П\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+        {{hash=6c849fd66b4156869a6a45b3d4fea202}{%
+           family={Мышков},
+           family_i={М\bibinitperiod},
+           given={П.\bibnamedelimi С.},
+           given_i={П\bibinitperiod\bibinitdelim С\bibinitperiod}}}%
+        {{hash=980cffbccb4d0b82e1d779339322e368}{%
+           family={Незлобин},
+           family_i={Н\bibinitperiod},
+           given={А.\bibnamedelimi А.},
+           given_i={А\bibinitperiod\bibinitdelim А\bibinitperiod}}}%
+        {{hash=fb9d7d68692073ec104442403e2b349a}{%
+           family={Петров},
+           family_i={П\bibinitperiod},
+           given={А.\bibnamedelimi Д.},
+           given_i={А\bibinitperiod\bibinitdelim Д\bibinitperiod}}}%
+      }
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Классификация веб-страниц на основе алгоритмов машинного обучения}
+      \field{year}{2005}
+    \endentry
+    \entry{much}{article}{}
+      \name{author}{1}{}{%
+        {{hash=55eea4aa300b0837654fc71bc29777e2}{%
+           family={Соколов},
+           family_i={С\bibinitperiod},
+           given={Е.\bibnamedelimi А.},
+           given_i={Е\bibinitperiod\bibinitdelim А\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ФКН ВШЭ}%
+      }
+      \strng{namehash}{55eea4aa300b0837654fc71bc29777e2}
+      \strng{fullhash}{55eea4aa300b0837654fc71bc29777e2}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Поиск эффективных методов решения задач многоклассовой классификации}
+      \field{langid}{russian}
+      \field{title}{Многоклассовая классификация и категориальные признаки}
+      \field{year}{2016}
+    \endentry
+    \entry{regression-vorontsov}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0c815e8a4ac3c4ee41e895e3ac119c96}{%
+           family={Воронцов},
+           family_i={В\bibinitperiod},
+           given={Константи\bibnamedelima Вячеславович},
+           given_i={К\bibinitperiod\bibinitdelim В\bibinitperiod}}}%
+      }
+      \strng{namehash}{0c815e8a4ac3c4ee41e895e3ac119c96}
+      \strng{fullhash}{0c815e8a4ac3c4ee41e895e3ac119c96}
+      \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Курс по машинному обучению}
+      \field{langid}{russian}
+      \field{title}{Лекции по алгоритмам восстановлении регрессии}
+      \field{year}{2007}
+    \endentry
+  \endsortlist
+  \missing{example-english}
+  \missing{unrestricted-jump-evco}
+\endrefsection
+\endinput
+

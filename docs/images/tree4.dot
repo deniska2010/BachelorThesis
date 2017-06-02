@@ -1,0 +1,10 @@
+digraph ex01 {
+    size="8,5"
+    node [shape = box];
+    "City" -> "norway" [ label = "> -1984479291"];
+    "AverageCargosPerDemand" -> "AverageNumberOfWorkShifts" [ label = "> 0" ];
+    "AverageNumberOfWorkShifts" -> "austria" [ label = "> 1" ];
+    "AverageNumberOfWorkShifts" -> "City" [ label = "<= 1" ];
+    "AverageCargosPerDemand" -> "gulfstream" [ label = "<= 0" ];
+    "City" -> "delLine" [ label = "<= -1984479291" ];
+}

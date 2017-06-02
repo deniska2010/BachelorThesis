@@ -1,0 +1,10 @@
+digraph ex01 {
+    size="8,5"
+    node [shape = box];
+    "AverageCostPerShift" -> "austria" [ label = "<= 10"];
+    "AverageCostPerShift" -> "AverageCostPerUnit" [ label = "> 10" ];
+    "AverageCostPerUnit" -> "norway" [ label = "<= 0.005" ];
+    "AverageCostPerUnit" -> "AmountOfPerformers" [ label = "> 0.005" ];
+    "AmountOfPerformers" -> "gulfstream" [ label = "<= 16" ];
+    "AmountOfPerformers" -> "delLine" [ label = "> 16" ];
+}

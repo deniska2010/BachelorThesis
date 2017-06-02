@@ -1,0 +1,10 @@
+digraph ex01 {
+    size="8,5"
+    node [shape = box];
+    "MaxStorageTimeMatrix" -> "austria" [ label = "<= 705"];
+    "AverageCargosPerDemand" -> "AverageStageLength" [ label = "> 0" ];
+    "AverageStageLength" -> "norway" [ label = "> 300165" ];
+    "AverageStageLength" -> "MaxStorageTimeMatrix" [ label = "<= 300165" ];
+    "AverageCargosPerDemand" -> "gulfstream" [ label = "<= 0" ];
+    "MaxStorageTimeMatrix" -> "delLine" [ label = "> 705" ];
+}
